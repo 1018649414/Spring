@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd"
+       default-autowire="byName">
+<!--    根据类型进行注入,byType的意思：直接关联依赖关系。-->
+<!--    比如循环找到IndexService这个类，然后判断这个类中的属性的类型，进行循环xml中注册的类型-->
+<!--    然后找到相同的类型，把这个相同类型的bean的id直接给IndexService。-->
+<!--    但是如果有两个bean的的id不同但是class路径相同这样的话就会出现问题。提示只需要一个dao，-->
+<!--    但是你给他两个。-->
+<!--    default-autowire="byType"-->
+
+<!--    根据名称进行查找byName：直接关联依赖关系-->
+<!--        这个是根据依赖类中的set名称。去掉了set把后面的第一个因为字母改成小写，进行匹配，和属性名称无关联-->
+<!--    default-autowire="byName"-->
+
+<!--    开启注解,不用下面这个开启注解也可以,spring4时就可以用开启扫描了-->
+<!--    <context:annotation-config></context:annotation-config>-->
+<!--    开始扫描,既可以开启注解也可以开启扫描-->
+<!--    <context:component-scan base-package="com"></context:component-scan>-->
+<!--    <bean id="dao" class="com.luban.dao.IndexDaoImpl" p:str="hello">-->
+<!--        注入属性-->
+<!--        <property name="str" value="hello word spring IOC"></property>-->
+<!--    </bean>-->
+
+<!--    <bean id="service" class="com.luban.dao.IndexService" c:dao-ref="dao">-->
+<!--        这是根据属性注入的 类中没有这个dao属性所以这里报错-->
+<!--        <property name="dao" ref="dao"></property>-->
+<!--        这里是构造方法注入-->
+<!--        <constructor-arg ref="dao"></constructor-arg>-->
+<!--    </bean>-->
+
+<!--    =====这样有两个就报错了====-->
+    <bean id="dao" class="com.luban.dao.IndexDaoImpl">
+
+    </bean>
+
+    <bean id="luban" class="com.luban.dao.IndexDaoImpl1">
+
+    </bean>
+<!--    =====这样有两个就报错了====-->
+<!--    还可以单独指定-->
+<!--    <bean id="indexService" class="com.luban.dao.IndexService" autowire="byName">-->
+    <bean id="indexService" class="com.luban.dao.IndexService">
+
+    </bean>
+</beans>
