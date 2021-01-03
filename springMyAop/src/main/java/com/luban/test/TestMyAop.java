@@ -1,16 +1,8 @@
 package com.luban.test;
 
 import com.luban.app.Appconfig;
-import com.luban.dao.Dao;
-import com.luban.dao.IndexDao;
+import com.luban.Dao;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import sun.misc.ProxyGenerator;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.lang.reflect.Proxy;
 
 public class TestMyAop {
     public static void main(String[] args) {
@@ -22,6 +14,7 @@ public class TestMyAop {
         //如果这里是true那么就是CGLIB的动态代理
         //如果这里是false那么就是JDK的动态代理
         Dao dao = (Dao) applicationContext.getBean("indexDao");
+        Dao dao1 = (Dao) applicationContext.getBean("indexDao");
 /*--------------------------测试@DeclareParents-------------------------------------*/
 //        Dao dao1 = (Dao) applicationContext.getBean("orderDao");
 //        dao1.query3();
@@ -37,8 +30,8 @@ public class TestMyAop {
 //        System.out.println("-----------------------------");
 //        dao.query2();
         //测试注解
-        dao.query3();
-        dao.query3();
+        dao.query1("123");
+        dao1.query1("222");
 
         //获取动态代理的类
 //        Class<?>[] classes = new Class[]{Dao.class};

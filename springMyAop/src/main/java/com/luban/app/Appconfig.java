@@ -6,7 +6,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Configuration
 //@EnableAspectJAutoProxy(proxyTargetClass = false)
-@EnableAspectJAutoProxy()
-@ComponentScan("com.luban")
+@EnableAspectJAutoProxy(proxyTargetClass = true)
+@ComponentScan("com")
 public class Appconfig {
 }

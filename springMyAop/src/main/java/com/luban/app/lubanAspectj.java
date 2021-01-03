@@ -1,11 +1,9 @@
 package com.luban.app;
 
-import com.luban.dao.Dao;
-import com.luban.dao.IndexDao;
-import com.luban.dao.TestDao;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 /**
@@ -25,8 +23,17 @@ import org.springframework.stereotype.Component;
  *
  */
 //切面默认是单例模式,也就是bean是单例的一样,scope默认单例.
+
+/**
+ * perthis的使用:
+ *      解释:当实现的接口为原型的时候,AOP类也为原型的时候,但是需要连接点的对象不会原型时可使用
+ *      使用方式:需要在实现类上加上@Scope("prototype"),在AOP类上也加上@Scope("prototype")且还需要在AOP
+ *              类上加上@Aspect("perthis(this(com.luban.dao.IndexDao))").
+ *              @EnableAspectJAutoProxy(proxyTargetClass = true)要用CGLEB,如果是JDK动态代理就会报错.
+ */
 @Component
 @Aspect
+@Scope
 public class lubanAspectj {
 
     //声明一个父类,去继承扩展,引入.
@@ -76,6 +83,11 @@ public class lubanAspectj {
 
     }
 
+//    //使用this注解的方式
+//    @Pointcut("this(com.luban.dao.*))")
+//    public void pointCutThis(){
+//
+//    }
     /**
      * JoinPoint
      *      这个类中包含了对连接的描述,比如连接点的名称,返回类型,当前对象,目标对象等等信息

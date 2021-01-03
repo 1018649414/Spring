@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/proxy" />
     <file type="web" url="file://$PROJECT_DIR$/spring01" />
     <file type="web" url="file://$PROJECT_DIR$/spring01s" />
     <file type="web" url="file://$PROJECT_DIR$/spring02" />
@@ -9,6 +10,7 @@
     <file type="web" url="file://$PROJECT_DIR$/spring03" />
     <file type="web" url="file://$PROJECT_DIR$/springAnnotations" />
     <file type="web" url="file://$PROJECT_DIR$/springMyAop" />
+    <file type="web" url="file://$PROJECT_DIR$/springMyIoc" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -21,6 +23,7 @@
       <set>
         <option value="$PROJECT_DIR$/spring01/pom.xml" />
         <option value="$PROJECT_DIR$/spring02/pom.xml" />
+        <option value="$PROJECT_DIR$/springSlioc/pom.xml" />
       </set>
     </option>
   </component>

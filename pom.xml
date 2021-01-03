@@ -18,6 +18,9 @@
         <module>spring02s</module>
         <module>springAop</module>
         <module>springMyAop</module>
+        <module>proxy</module>
+        <module>springSlioc</module>
+        <module>springMyIoc</module>
     </modules>
 
     <properties>
