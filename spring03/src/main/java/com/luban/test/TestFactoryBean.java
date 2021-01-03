@@ -26,7 +26,6 @@ public class TestFactoryBean {
         ac.register(IndexService.class);
         //开启扫描的API
         ac.scan("com");
-        System.out.println("生成令牌1234");
         ac.refresh();
 
         System.out.println(ac.getBean(IndexService.class).getClass().getName());
